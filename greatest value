@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  float one, two, three;
+  cout << "Enter first number: \n"; 
+  cin >> one;
+  cout << "Enter second number: \n";
+  cin >> two;
+  cout << "Enter third number: \n";
+  cin >> three;
+  
+  if (one >= two && one >= three)
+    cout << "Greatest number: \n" << one;
+  if (two >= one && two >= three)
+    cout << "Greatest number: \n" << two;
+  if (three >= one && three >= two)
+    cout << "Greatest number: \n" << three;
+
+  return 0;
+}
