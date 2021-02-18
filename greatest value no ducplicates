@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int one, two, three;
+  cout << "Enter number: \n";
+  cin >> one; 
+  cout << "Enter number: \n";
+  cin >> two; 
+  cout << "Enter number: \n";
+  cin >> three;
+    if (one >= two)
+      cout << "No duplicates accepted. \n Program terminated";
+    else
+      if (two >= three)
+    cout << "No duplicates accepted. \n Program terminated";
+    else if (one >= three)
+    cout << "No duplicates accepted. \n Program terminated";
+    return 0;
+
+
+
+  if (one >= two && one >= three)
+    cout << "Greatest number: \n" << one;
+  if (two >= one && two >= three)
+    cout << "Greatest number: \n" << two;
+  if (three >= one && three >= two)
+    cout << "Greatest number: \n" << three;
+
+  return 0;
+}
