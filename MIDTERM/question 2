@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+int main()
+
+{
+  def main()
+  fileName="numbers.txt"
+  #open file for writing
+  filewriter=open(fileName,'w')
+
+  #write 1 to 50 numbers to file
+  for num in range(0,50):
+        filewriter.write(string(num+1)+'\n')
+  filewriter.close()
+  print('writing complete')
+
+  total=0
+  counter=1
+
+  #Open input file
+  filereader= open(fileName, 'r')
+  data=filereader.readline()
+    
+  #read 1 to 50 numbers to file
+  while True:          
+        if data == '':
+              break
+          # convert from string to number
+        data = int(data)
+        if counter % 3 == 0:
+              print('%d'%counter)
+              total+=data
+        counter=counter+1
+        data = filereader.readline()
+
+  filereader.close();
+  print('Total %d'%int(total))
+#calling main method       
+main()
+}
