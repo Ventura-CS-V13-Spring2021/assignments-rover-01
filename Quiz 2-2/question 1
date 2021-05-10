@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+int main() 
+{
+  int random;
+  int decider;
+  srand(time(0));
+  // srand uses the computers time based function to get a new set of random numbers during each run
+  for (int xx = 1 ; xx < 6 ; xx++)
+  // You can get rid of an extra varible and replace the six with a new limit
+  {
+    random =  1+(rand() % 100);
+    // The %100 is showing your bound for the random generator. This will never exceed the number one hundred
+    cout << random << endl;
+    
+    if (decider < random)
+    {
+      cout << " This number " << random << " is greater than the preceding " << decider << "."<< endl;
+    }
+    decider = random;
+  }
+}

@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main ()
+{
+  int first, second, third;
+  // Here you establish your varibles for the numbers you'll be testing.
+  do
+  // This "do-loop" checks the condition at the bottom of the statement. It takes input from the user and checks it. If the input is wrong, you can take it again.
+  {
+    cout << "Enter three numbers between 0 and 99 : \n" ;
+    cin >> first >> second >> third ;
+
+
+  }while ((first < 0) || (first > 100) || 
+         (second < 0) || (second > 100) || 
+         (third < 0) || (third > 100));
+
+    if (first == second)
+    {
+      if (first == third)
+        cout << "All inputs are the same." << endl;
+      else 
+        cout << first << " and " << second << " are the same. Try again.  " << endl;
+        // Above is the first condition. First it is taking all of the inputs with the two if statements, and comparing. It is all taking care of the first and second comparison instead of adding another else if statement at the bottom. 
+    }
+    else 
+    {
+      if (first == third)
+      cout << first << " and " << third << " are the same. Try again. " << endl;
+      else if (second == third)
+      cout << second << " and " << third << " are the same. Try again. " << endl;
+      else
+      cout << "Thank you." << endl;
+    }
+
+}

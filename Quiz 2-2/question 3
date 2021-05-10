@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int lower;
+  int upper;
+  int prime;
+  // Declared the range.
+  cout << "Enter a range set: " << endl;
+  cin >> lower >> upper;
+  //Here I am traversing each number in the range which includes
+  //testing for one and zero
+  for (int ii = lower ; ii <= upper ; ii++)
+  // Here I disregarded one and zero
+  {
+    if (ii == 1 || ii ==0)
+      continue;
+      // This for loop is checking to see if a number is prime using the modulus operator. Prime = 1 means it is prime. Prime = 0 means it is not prime. 
+    prime = 1;
+    for (int jj = 2 ; jj <= ii/2 ; ++jj)
+    {
+      if (ii % jj ==0)
+      {
+        prime = 0;
+        break;
+      }
+    }
+    if (prime == 1)
+    cout << ii << " < prime " << endl;
+  }  
+  cout << prime << " < prime " << endl;
+}
