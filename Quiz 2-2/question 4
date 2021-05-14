@@ -1,0 +1,37 @@
+#include <iostream>
+#include <fstream>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+
+int main()
+{
+  int total;
+  int id;
+  double salary;
+  string name;
+  string department;
+  // Declare the varibles.
+
+  //Here is a pointer for our file called record. This will inherit the input variables to employee.txt.
+  ofstream record;
+  record.open("employee.txt");
+  cout << "Enter number of emplyees: \n";
+  cin >> total;
+  record << total << endl;
+  for (int i = 0 ; i < total ; i++)
+  // For how ever many emplyees we have, this will keep asking for our inputs.
+  {
+    cout << "Enter employee ID:  ";
+    cin >> id ;
+    cout << "Enter employee name:  ";
+    cin >> name;
+    cout << "Enter department name:  ";
+    cin >> department;
+    cout << "Enter gross salary:  ";
+    cin >> salary;
+    record << id << "" << name << "" << department << "" << salary << endl;
+    // This stores it in a pointer called memory and this file will close once the for loop has stopped.
+  }
+  record.close();
+}

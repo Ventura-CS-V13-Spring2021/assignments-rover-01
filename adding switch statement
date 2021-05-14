@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+int main() {
+  char grade;
+  cout << "Enter your choice among A, B, or C: \n";
+
+  cin >> grade;
+  switch (grade)
+  {
+    case 'A':
+      cout << "You selected A. Is this correct? \n";
+      break;
+    case 'B':
+      cout << "You selected B. Is this correct? \n";
+      break;
+    case 'C':
+      cout << "You selected C. Is this correct? \n";
+      break;
+    default:
+      cout << "Entered letter is not recognizable. \n";
+  }
+}
