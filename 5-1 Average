@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int xx, yy;
+    float num[100], sum=0.0, average;
+
+    cout << "Enter the numbers of data: ";
+    cin >> xx;
+
+    while (xx > 100 || xx <= 0)
+    {
+        cout << "Error! number should in range of (1 to 100)." << endl;
+        cout << "Enter the number again: ";
+        cin >> xx;
+    }
+
+    for(yy = 0; yy < xx; ++yy)
+    {
+        cout << yy + 1 << ". Enter number: ";
+        cin >> num[yy];
+        sum += num[yy];
+    }
+
+    average = sum / xx;
+    cout << "Average = " << average;
+
+    return 0;
+}

@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main()
+
+{
+    int array[SIZE]; //Size of the input array
+    int i, max, min, size;
+    cout<<"Enter size of the array: ";
+    cin>>size;
+  
+    cout<<"\n Enter "<<size <<" elements in the array: "; //Input numbers that go into array
+    // Create a for loop to traverse all of the numbers.
+    for(i=0; i<size; i++)
+        cin>>array[i];
+    // Make an assumption that the maximum and minimum numbers inside the array is in the first position
+    max = array[0];
+    min = array[0];
+    //Find maximum and minimum in all array elements.
+    for(i=1; i<size; i++)
+    {
+    // Traverse numbers in array and compare to the next number with and if statement.
+        if(array[i] > max)
+            max = array[i];
+        // Traverse numbers in array and compare to the next number with and if statement.
+        if(array[i] < min)
+            min = array[i];
+    }
+    
+    cout<<"\nMaximum element =" << max << "\n";
+    cout<<"Minimum element =" << min;
+    return 0;
+}

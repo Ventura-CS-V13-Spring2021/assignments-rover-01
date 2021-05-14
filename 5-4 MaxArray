@@ -1,0 +1,54 @@
+
+#include <iostream>
+#include <bits/stdc++.h>
+// This file was from geeksforgeeks which allows you to find a rowwise element in the matrix or array 
+using namespace std;
+  
+#define N 5 // Max number of rows allowed. You could also use const.
+  
+// Function to find the row with max sum
+pair<int,int> columnmax(int array[N][N])
+{
+    // Variable to store index of row with maximum
+    int rowindex = -1;
+    // Variable to store max sum
+    int maximum = INT_MIN;
+    // Traverse array(matrix) row wise
+    for (int i = 0; i < N; i++) {
+        int sum = 0;
+        // calculate sum of row
+        for (int j = 0; j < N; j++) {
+            sum += array[i][j];
+        }
+        // Update maximum if it is less than current sum
+        if (sum > maximum) {
+            maximum = sum;
+            // store index
+            rowindex = i;
+        }
+    }
+    pair<int, int> resultt;
+    resultt = make_pair(rowindex, maximum);
+  
+    // return result
+    return resultt;
+}
+  
+// Driver code
+int main()
+{
+  
+    int array[N][N] = {
+        { 1, 2, 3, 4, 5 },
+        { 5, 6, 7, 8, 9 },
+        { 10, 11, 12, 13, 14 },
+        { 15, 16, 17, 18, 19 },
+        { 20, 21, 22, 23, 24 },
+    };
+  
+    pair<int, int> ans = columnmax(array);
+  
+    cout << "Row " << ans.first + 1 << " has max sum " << ans.second;
+  
+    return 0;
+}

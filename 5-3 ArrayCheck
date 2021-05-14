@@ -1,0 +1,29 @@
+bool check_sorted(Array[],n) 
+{ 
+	bool flag=true; 
+	int z=a[1]-a[0]; 
+	if(z>0)	 
+	{ 
+ 
+		for(int xx=1 ; xx<n ; xx++)	 
+		{ 
+			if(a[xx]>a[xx+1])	 
+			{ 
+				flag=false; 
+				break; 
+			} 
+		} 
+	} 
+	else 
+	{ 
+		for(int xx=1 ; xx<n ; xx++) 
+		{ 
+			if(a[xx]<a[xx+1]) 
+			{ 
+				flag=false; 
+				break; 
+			} 
+		} 
+	} 
+	return flag; 
+} 
