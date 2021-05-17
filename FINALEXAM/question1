@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
+
+ // This comparison is for the freq_arr[] that will tell if the number occurs more than once. The traverse will be named pos1 and pos2 which stand for position
+bool compare(pair < int , int > pos1 , pair < int , int > pos2)
+{
+    //This if statement tests the frequency of two elements and then would put the larger in the first position.
+    if (pos1.second == pos2.second)
+        return pos1.first > pos2.first;
+    //This will the rest of the numbers on a decreasing frequency.
+    return pos1.second > pos2.second;
+    //This key valued .second is for the map that will be used later.
+}
+ //The function getNumDivide will call the array which inputs the int varaible xx and will cycle for however many numbers yy calls (occurences).
+void getNumDivide(int arr[], int xx, int yy)
+{
+    //Um is a map table to traverse the frequency.
+    unordered_map < int , int > um;
+    for (int i = 0; i < xx; i++)
+        um[arr[i]]++;
+ 
+    //The elements are stored in um and then called to freq_arr
+    vector < pair < int , int >> freq_arr(um.begin(), um.end());
+ 
+    //This is where you sort the vector 'freq_arr' by comparing the numbers and calling just one variable.
+    sort(freq_arr.begin(), freq_arr.end(), compare);
+    //Call only the numbers you want. If you want one number, call one. If you want two numbers call two.
+    cout << yy << ". The number with most occurrences is:\n ";
+    for (int i = 0 ; i < yy ; i++)
+        cout << freq_arr[i].first << " ";
+}
+ 
+//Test
+int main()
+{
+    int arr[] = { 10 , 20 , 1 };
+    int xx = sizeof(arr) / sizeof(arr[0]);
+    int yy = 1;
+    getNumDivide(arr, xx, yy);
+    return 0;
+}
