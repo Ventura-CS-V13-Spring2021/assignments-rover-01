@@ -1,0 +1,113 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+class Student
+{
+public:
+Student(); // This will be the used as the construtor.
+   ~Student(); // This is my destructor
+   void input(); // Inputs students name, number of classes and their names.
+   void output(); // Outputs students name, number of classes and their names.
+   void reset(); // resets the number of classes to 0 and the classList to an empty array
+   Student& operator =(const Student& rightSide);// assignment operator
+
+   private:
+   string name;
+   int numClasses;
+   string *classList;
+};
+
+Student::Student() : name(""), numClasses(0), classList(NULL){}
+
+Student::~Student()
+{
+numClasses = 0;
+reset();
+name = "";
+}
+  
+
+// Student::input
+void Student::input()
+{
+reset();
+cout << "Enter Student name: ";
+getline(cin, name);
+cout << "Enter number of classes: ";
+cin >> numClasses;
+cin.ignore(2,'\n'); // Discard extra newline
+if (numClasses > 0)
+{
+// dynamically construct large array to hold number of classes
+classList = new string[numClasses];
+// input the name of each into dynamic array
+for (int i=0; i<numClasses; i++)
+{
+cout << "Enter name of class " << (i+1) << ": ";
+getline(cin, classList[i]);
+}
+}
+cout << endl;
+}
+
+// Student::output
+void Student::output()
+{
+cout << "\nName of Student: " << name <<"\nClass List: " << endl;
+for (int i = 0; i < numClasses; i++)
+cout << right << i+1 << ") " << classList[i] << endl;
+}
+
+// Student::=
+Student& Student::operator =(const Student& rightSide)
+{
+reset();
+numClasses = rightSide.numClasses;
+if (numClasses > 0)
+{
+classList = new string[numClasses];
+for (int i = 0; i < numClasses; i++)
+classList[i] = rightSide.classList[i];
+}
+return *this;
+}
+
+// Student::Reset
+void Student::reset()
+{
+if (classList)
+{
+delete [] classList;
+classList = NULL;
+numClasses = 0;
+}
+}
+
+// test function
+int main()
+{
+//two student classes
+char ch='y';
+while(ch!='n')
+{
+Student s1, s2;
+s1.input(); // Input for student 1
+cout << "Student 1's data: " << endl;
+s1.output(); // Output for student 1
+cout << endl;
+s2 = s1;
+cout << "\nErased Name and Class List:" << endl;
+s2.output(); // output same data as for student 1
+s1.reset();
+cout << "\nData Reset:" << endl;
+s1.output(); // no classes
+cout << "\nClear Reset:" << endl;
+s2.output(); // must have original classes
+cout << endl;
+
+}
+return 0;
+  
+}
