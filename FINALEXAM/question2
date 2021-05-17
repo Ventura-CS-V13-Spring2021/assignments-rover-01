@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+void sortNum(int array[],int size)
+{
+    //This function will take the array input and check for any value that occur more than once 
+    int xx , j ;
+    for (xx = 1; xx <= size-1; xx++) {
+        int occurance = array[xx];
+        for (j = xx - 1 ; j >= 0 && array[j] < occurance ; j--)
+            array[j+1] = array[j];
+            // Once the occurance is found, set it equal to one of the columns.
+        array[j+1] = occurance;
+    }
+}
+void selectionNum(int array[],int size)
+//This function will take the numbers found and sort then to the corresponding column with a bool.
+//This organizes the array.
+{
+  int count = 1;
+  bool last_element = false;
+  for(int xx = 0 ; xx < size && !last_element ; xx++) {
+  count = 1;
+  for(int j = xx + 1 ; j < size ; j++) {
+  if(array[xx] == array[j]) {
+count++;
+if(j==size-1)
+{
+    last_element=true;
+    cout << array[xx] << " " << count << endl;
+    break; }
+}
+else
+{
+  cout << array[xx] << " " << count << endl;
+  xx = j-1;
+  break;
+  }
+}
+}
+}
+int main()
+{
+  
+  int num;
+  cout << "How many elements you want to enter :";
+  cin >> num;
+  cout << endl;
+  int *array = new int[num];
+  for(int xx = 0 ; xx < num ; xx++)
+  cin >> array[xx];
+  sortNum(array,10);
+  //The number five is for the number of rows that would show not including the first position
+  selectionNum(array,10);
+  return 0;
+}
